@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿//#define DEV_DEBUG
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -13,12 +15,16 @@ public class TitleLogicScript : MonoBehaviour {
     }
 
     public void quitGame() {
-        #if UNITY_STANDALONE
-                Application.Quit(); // Quits the player
-        #endif
+#if UNITY_STANDALONE
+            Application.Quit(); // Quits the player
+#endif
 
-        #if UNITY_EDITOR
-                EditorApplication.isPlaying = false; // Stops Play Mode in the editor
-        #endif
+#if UNITY_WEBGL && (!UNITY_EDITOR || UNITY_EDITOR && DEV_DEBUG)
+        Application.OpenURL("https://andrewmatzureff.github.io/");
+#endif
+
+#if UNITY_EDITOR
+        EditorApplication.isPlaying = false; // Stops Play Mode in the editor
+#endif
     }
 }

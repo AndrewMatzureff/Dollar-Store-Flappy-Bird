@@ -4615,6 +4615,7 @@ MonoBehaviour:
   addScoreSound: {fileID: 712476760}
   gameOverSound: {fileID: 874552580}
   backgroundMusic: {fileID: 1562865985}
+  quitButton: {fileID: 896849069}
 --- !u!4 &1224491793
 Transform:
   m_ObjectHideFlags: 0

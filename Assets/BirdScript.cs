@@ -21,12 +21,22 @@ public class BirdScript : MonoBehaviour {
             die();
         }
 
-        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && birdIsAlive) {
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) || hasTouches()) && birdIsAlive) {
             leftWing.GetComponent<Animator>().SetTrigger("FlapTrigger");
             rightWing.GetComponent<Animator>().SetTrigger("FlapTrigger");
 
             myRigidbody.velocity = Vector2.up * flapStrength;
         }
+    }
+
+    private bool hasTouches() {
+        for (int i = 0; i < Input.touchCount; ++i) {
+            if (Input.GetTouch(i).phase == TouchPhase.Ended) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
