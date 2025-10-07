@@ -1,0 +1,13 @@
+name: No-Op Workflow
+
+on:
+  push:
+    branches:
+      - mainline
+
+jobs:
+  noop_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: No-Op Step
+        run: echo "This is a no-op workflow. No actions are performed."
