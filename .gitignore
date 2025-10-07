@@ -90,3 +90,7 @@ crashlytics-build.properties
 /*_[Dd]ata/
 /*.exe
 /*.zip
+
+# GameCI Temporary Files
+/[Aa]rtifacts/
+/[Cc]odeCoverage/
